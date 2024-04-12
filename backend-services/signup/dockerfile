@@ -1,11 +1,11 @@
 FROM node
 
-COPY . /landing
+COPY . /signup
 
-WORKDIR /landing
+WORKDIR /signup
 
 RUN apt-get update -y
 RUN apt-get install git -y
 RUN apt-get install bash -y 
 
-CMD [ "node", "food-landing-page-server.js" ]
+CMD [ "node", "food-signup-server.js" ]

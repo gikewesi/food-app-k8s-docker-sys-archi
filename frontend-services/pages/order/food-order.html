@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food App - Cart</title>
+  <style>
+    /* Add your CSS styles here */
+    /* For simplicity, I'm not adding any styles in this example */
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="./../landing/food-landing.html">Home</a></li>
+      <li><a href="./food-order.html">Order</a></li>
+      <li><a href="./../review/food-review.html">Review</a></li>
+      <li><a href="./../signup/food-signup.html">Sign Up</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div id="cart" class="section">
+    <h1>Shopping Cart</h1>
+    <ul id="cart-items">
+      <!-- Cart items will be dynamically added here -->
+    </ul>
+    <button onclick="checkout()">Checkout</button>
+  </div>
+
+  <script>
+    // JavaScript function to display cart items with images and delete buttons
+    function displayCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const cartItemsList = document.getElementById('cart-items');
+      cartItemsList.innerHTML = '';
+
+      cart.forEach((item, index) => {
+        // Split the item into name and image URL
+        const [mealName, imageUrl] = item.split('|');
+
+        // Create elements to display the image, name, and delete button
+        const li = document.createElement('li');
+        const img = document.createElement('img');
+        img.src = imageUrl; // Set the image source to the provided URL
+        img.alt = mealName;
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        // Add an event listener to delete the item when the button is clicked
+        deleteButton.addEventListener('click', function() {
+          removeFromCart(index);
+        });
+        li.appendChild(img);
+        li.appendChild(deleteButton);
+        cartItemsList.appendChild(li);
+      });
+    }
+
+    // JavaScript function to remove an item from the cart
+    function removeFromCart(index) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1); // Remove the item at the specified index
+      localStorage.setItem('cart', JSON.stringify(cart)); // Update the cart in localStorage
+      displayCart(); // Refresh the cart display
+    }
+
+    // JavaScript function to handle checkout
+    function checkout() {
+      // Redirect to checkout page or perform further actions
+      alert('Redirecting to checkout...');
+    }
+
+    // Call displayCart() function when the page loads
+    displayCart();
+  </script>
+
+</body>
+</html>

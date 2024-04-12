@@ -1,11 +1,11 @@
 FROM node
 
-COPY . /landing
+COPY . /order
 
-WORKDIR /landing
+WORKDIR /order
 
 RUN apt-get update -y
 RUN apt-get install git -y
 RUN apt-get install bash -y 
 
-CMD [ "node", "food-landing-page-server.js" ]
+CMD [ "node", "food-order-server.js" ]

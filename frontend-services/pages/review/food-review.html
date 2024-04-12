@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food App - Reviews</title>
+  <style>
+    /* Add your CSS styles here */
+    /* For simplicity, I'm not adding any styles in this example */
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+        <li><a href="./../landing/food-landing.html">Home</a></li>
+        <li><a href="./../order/food-order.html">Order</a></li>
+        <li><a href="./../review/food-review.html">Review</a></li>
+        <li><a href="./../signup/food-signup.html">Sign Up</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div id="review" class="section">
+    <h1>Leave a Review</h1>
+    <form id="review-form">
+      <label for="name">Your Name:</label><br>
+      <input type="text" id="name" name="name" required><br>
+      <label for="rating">Rating:</label><br>
+      <select id="rating" name="rating" required>
+        <option value="5">5 stars</option>
+        <option value="4">4 stars</option>
+        <option value="3">3 stars</option>
+        <option value="2">2 stars</option>
+        <option value="1">1 star</option>
+      </select><br>
+      <label for="comment">Your Review:</label><br>
+      <textarea id="comment" name="comment" rows="4" cols="50" required></textarea><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <script>
+    // JavaScript code to handle form submission
+    document.getElementById('review-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+      
+      // Get form data
+      const name = document.getElementById('name').value;
+      const rating = document.getElementById('rating').value;
+      const comment = document.getElementById('comment').value;
+
+      // You can perform further actions with the form data, such as sending it to a server
+      
+      // For this example, let's just display the submitted data in an alert
+      alert('Thank you for your review!\nName: ' + name + '\nRating: ' + rating + '\nComment: ' + comment);
+    });
+  </script>
+
+</body>
+</html>

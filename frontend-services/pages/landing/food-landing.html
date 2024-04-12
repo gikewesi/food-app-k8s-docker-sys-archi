@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food App</title>
+  <style>
+    /* Add your CSS styles here */
+    /* For simplicity, I'm not adding any styles in this example */
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="./food-landing.html">Home</a></li>
+      <li><a href="./../order/food-order.html">Order</a></li>
+      <li><a href="./../review/food-review.html">Review</a></li>
+      <li><a href="./../signup/food-signup.html">Sign Up</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div id="home" class="section">
+    <h1>Welcome to Food App</h1>
+    <p>Order delicious meals from our wide variety of options!</p>
+    <!-- Placeholder images for meals -->
+    <div class="meal-images">
+      <div class="meal">
+        <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Meal 1">
+        <button onclick="orderMeal('Meal 1')">Order Meal 1</button>
+      </div> 
+      <br>  <br>
+      <div class="meal">
+        <img src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Meal 2">
+        <button onclick="orderMeal('Meal 2')">Order Meal 2</button>
+      </div>
+      <br>  <br>
+      <div class="meal">
+        <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Meal 3">
+        <button onclick="orderMeal('Meal 3')">Order Meal 3</button>
+      </div>
+      <!-- Add more images and buttons as needed -->
+    </div>
+  </div>
+
+  <!-- Order Section -->
+  <div id="order" class="section">
+    <h2>Place Your Order</h2>
+    <!-- Add order form or more content here -->
+  </div>
+
+  <!-- Review Section -->
+  <div id="review" class="section">
+    <h2>Reviews</h2>
+    <!-- Add reviews or more content here -->
+  </div>
+
+  <!-- Sign Up Section -->
+  <div id="signup" class="section">
+    <h2>Sign Up</h2>
+    <!-- Add sign up form or more content here -->
+  </div>
+
+  <script>
+    // JavaScript function to handle meal ordering
+    function orderMeal(mealName) {
+      // Retrieve the cart from localStorage or initialize an empty array if it doesn't exist
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      // Add the selected meal to the cart
+      cart.push(mealName);
+
+      // Store the updated cart back into localStorage
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      // Redirect to the order page (cart)
+      window.location.href = './../order/food-order.html';
+    }
+  </script>
+
+</body>
+</html>

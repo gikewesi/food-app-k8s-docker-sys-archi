@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food App - Sign Up</title>
+  <style>
+    /* Add your CSS styles here */
+    /* For simplicity, I'm not adding any styles in this example */
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+        <li><a href="./../landing/food-landing.html">Home</a></li>
+        <li><a href="./../order/food-order.html">Order</a></li>
+        <li><a href="./../review/food-review.html">Review</a></li>
+        <li><a href="./../signup/food-signup.html">Sign Up</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div id="signup" class="section">
+    <h1>Sign Up</h1>
+    <form id="signup-form">
+      <label for="username">Username:</label><br>
+      <input type="text" id="username" name="username" required><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br>
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password" required><br>
+      <label for="confirm-password">Confirm Password:</label><br>
+      <input type="password" id="confirm-password" name="confirm-password" required><br>
+      <input type="submit" value="Sign Up">
+    </form>
+  </div>
+
+  <script>
+    // JavaScript code to handle form submission
+    document.getElementById('signup-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+      
+      // Get form data
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+
+      // You can perform further actions with the form data, such as sending it to a server
+      
+      // For this example, let's just display the submitted data in an alert
+      alert('Thank you for signing up!\nUsername: ' + username + '\nEmail: ' + email);
+    });
+  </script>
+
+</body>
+</html>
