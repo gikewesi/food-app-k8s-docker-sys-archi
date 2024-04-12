@@ -1,0 +1,12 @@
+FROM node
+
+COPY . /landing
+
+WORKDIR /landing
+
+RUN apt-get update -y
+RUN apt-get install git -y
+RUN apt-get install bash -y 
+
+CMD [ "node", "food-landing-page-server.js" ]
+

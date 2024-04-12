@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: food-landing-ingress
+spec:
+  rules:
+    - host: signup.yourdomain.com
+      http:
+        paths:
+          - path: /food-landing
+            pathType: Prefix
+            backend:
+              service:
+                name: food-landing-service
+                port:
+                  number: 80
