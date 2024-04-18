@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginx-container
-        image: josephayi/bookride-service:latest
+        image: guddytech/food-review-server:latest
         ports:
         - containerPort: 80
         envFrom:
