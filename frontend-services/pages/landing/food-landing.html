@@ -54,7 +54,7 @@
     async function orderMeal(mealId) {
       console.log('Sending order request to backend...');
       try {
-        const response = await fetch('http://localhost:3003/orders', {
+        const response = await fetch('http://localhost:3011/orders', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

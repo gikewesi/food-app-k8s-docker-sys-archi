@@ -26,8 +26,47 @@
   <!-- Main Content -->
   <div id="signup" class="section">
     <h1>Sign Up</h1>
-    <!-- Add sign up form or more content here -->
+    <!-- Sign up form -->
+    <form id="signup-form">
+      <label for="username">Username:</label><br>
+      <input type="text" id="username" name="username"><br>
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password"><br><br>
+      <button type="submit">Sign Up</button>
+    </form>
   </div>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', async function(event) {
+      event.preventDefault();
+      
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      
+      try {
+        const response = await fetch('http://localhost:3007/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ username, password })
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          alert(data.message);
+          // Optionally, redirect to another page after successful signup
+          // window.location.href = '/path/to/redirect';
+        } else {
+          const errorMessage = await response.text();
+          alert('Sign up failed: ' + errorMessage);
+        }
+      } catch (error) {
+        console.error('An error occurred while signing up:', error.message);
+        alert('An error occurred while signing up. Please try again later.');
+      }
+    });
+  </script>
 
 </body>
 </html>

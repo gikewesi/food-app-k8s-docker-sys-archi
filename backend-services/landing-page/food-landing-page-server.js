@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors'); // Import the cors middleware
 
 const app = express();
-const PORT = 3003;
+const PORT = 3011;
 
 app.use(bodyParser.json());
 
@@ -22,6 +22,7 @@ app.get('/meals', (req, res) => {
 
 app.post('/orders', (req, res) => {
   const { mealId } = req.body;
+  console.log('Received order for meal with ID:', mealId);
   const selectedMeal = meals.find(meal => meal.id === mealId);
   if (!selectedMeal) {
     return res.status(404).json({ error: 'Meal not found' });

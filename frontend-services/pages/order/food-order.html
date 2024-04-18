@@ -28,22 +28,39 @@
 
   <script>
     async function fetchCartItems() {
-      const response = await fetch('http://localhost:3003/cart');
-      const cartItems = await response.json();
-      return cartItems;
+      console.log('Fetching cart items...');
+      try {
+        const response = await fetch('http://localhost:3004/cart');
+        if (!response.ok) {
+          throw new Error('Failed to fetch cart items');
+        }
+        const cartItems = await response.json();
+        console.log('Cart items:', cartItems);
+        return cartItems;
+      } catch (error) {
+        console.error('An error occurred while fetching cart items:', error.message);
+        throw error;
+      }
     }
+
 
     async function renderCartItems() {
-      const cartItems = await fetchCartItems();
-      const cartItemsContainer = document.getElementById('cart-items');
-      cartItemsContainer.innerHTML = '';
+      try {
+        const cartItems = await fetchCartItems();
+        console.log('Rendering cart items:', cartItems);
+        const cartItemsContainer = document.getElementById('cart-items');
+        cartItemsContainer.innerHTML = '';
 
-      cartItems.forEach(item => {
-        const itemDiv = document.createElement('div');
-        itemDiv.textContent = item.name;
-        cartItemsContainer.appendChild(itemDiv);
-      });
+        cartItems.forEach(item => {
+          const itemDiv = document.createElement('div');
+          itemDiv.textContent = item.name;
+          cartItemsContainer.appendChild(itemDiv);
+        });
+      } catch (error) {
+        console.error('An error occurred while rendering cart items:', error.message);
+      }
     }
+
 
     renderCartItems();
   </script>

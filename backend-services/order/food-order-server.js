@@ -1,12 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors'); // Import the cors module
+const cors = require('cors');
 
 const app = express();
-const PORT = 3005;
+const PORT = 3010;
 
 app.use(bodyParser.json());
-app.use(cors()); // Use cors middleware
+app.use(cors());
 
 let cartItems = [];
 
@@ -23,3 +23,4 @@ app.post('/cart', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Order service is running on port ${PORT}`);
 });
+

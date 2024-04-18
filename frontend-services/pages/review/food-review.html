@@ -20,9 +20,51 @@
 
   <!-- Main Content -->
   <div id="review" class="section">
-    <h1>Reviews</h1>
-    <!-- Add reviews or more content here -->
+    <h1>Submit a Review</h1>
+    <form id="reviewForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required><br><br>
+      
+      <label for="review">Review:</label><br>
+      <textarea id="review" name="review" rows="4" cols="50" required></textarea><br><br>
+      
+      <button type="submit">Submit Review</button>
+    </form>
   </div>
+
+  <script>
+    const reviewForm = document.getElementById('reviewForm');
+
+    reviewForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(reviewForm);
+      const username = formData.get('username');
+      const review = formData.get('review');
+
+      try {
+        const response = await fetch('http://localhost:3008/reviews', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ username, review })
+        });
+
+        if (response.ok) {
+          alert('Review submitted successfully!');
+          // Optionally, you can reset the form after successful submission
+          reviewForm.reset();
+        } else {
+          const errorMessage = await response.json();
+          alert(`Failed to submit review: ${errorMessage.error}`);
+        }
+      } catch (error) {
+        console.error('Error submitting review:', error.message);
+        alert('An error occurred while submitting the review. Please try again later.');
+      }
+    });
+  </script>
 
 </body>
 </html>
