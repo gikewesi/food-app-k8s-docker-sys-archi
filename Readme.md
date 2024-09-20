@@ -3,12 +3,12 @@
 This document outlines the steps to monitor deployment frequency, success rates, and the time taken from image push to Kubernetes deployment using Datadog, integrated with a SecRel pipeline.
 
 ## Outline
-1. [SecRel Pipeline – Custom Metrics in Datadog](#secrel-pipeline--custom-metrics-in-datadog)
-2. [Scan Data Already in Datadog Related to Deployments](#scan-data-already-in-datadog-related-to-deployments)
-3. [Create Custom Dashboard](#create-custom-dashboard)
-    - [Tracking Time: Image Push to Kubernetes Deployment](#tracking-time-image-push-to-kubernetes-deployment)
-    - [Monitoring Deployment Success/Failure](#monitoring-deployment-successfailure)
-    - [Tracking Deployment Frequency](#tracking-deployment-frequency)
+1. SecRel Pipeline – Custom Metrics in Datadog
+2. Scan Data Already in Datadog Related to Deployments
+3. Create Custom Dashboard
+    - Tracking Time: Image Push to Kubernetes Deployment
+    - Monitoring Deployment Success/Failure
+    - Tracking Deployment Frequency
 
 ---
 
@@ -34,6 +34,6 @@ Before building new tools, leverage the existing data in Datadog to analyze depl
 ## 3. Create Custom Dashboard
 After gathering the necessary data, create a custom dashboard in Datadog to visualize deployment metrics. This dashboard should include three key components
 
-- 1. Tracking Time: Image Push to Kubernetes Deployment
-- 2. Monitoring Deployment Success/Failure
-- 3. Tracking Deployment Frequency
+1. Tracking Time: Image Push to Kubernetes Deployment
+2. Monitoring Deployment Success/Failure
+3. Tracking Deployment Frequency
